@@ -1,19 +1,24 @@
 require './lib/card'
-require 'pry'
 class Guess
-  attr_reader :choice,
+  attr_reader :response,
               :card
-  def initialize(choice,card)
-    @choice = choice
+  def initialize(response,card)
+    @response = response
     @card = card
   end
 
+  def correct?
+    @response == "#{@card.instance_variable_get("@value")}" + " of " + "#{@card.instance_variable_get("@suit")}"
+  end
 
+  def feedback
+    if correct?
+      return "Correct!"
+    else
+      return "Incorrect."
+    end
+  end
 end
 
-card = Card.new(2,"Clubs")
+card = Card.new("11","Hearts")
 guess = Guess.new("10 of Hearts",card)
-
-
-puts guess
-binding.pry
