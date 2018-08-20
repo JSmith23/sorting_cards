@@ -1,4 +1,5 @@
 require './lib/card'
+
 class Guess
   attr_reader :response,
               :card
@@ -8,17 +9,17 @@ class Guess
   end
 
   def correct?
-    @response == "#{@card.instance_variable_get("@value")}" + " of " + "#{@card.instance_variable_get("@suit")}"
+    @response == "#{@card.instance_variable_get('@value')}" + ' of ' + "#{@card.instance_variable_get('@suit')}"
   end
 
   def feedback
     if correct?
-      return "Correct!"
+      return 'Correct!'
     else
-      return "Incorrect."
+      return 'Incorrect.'
     end
   end
 end
 
-card = Card.new("11","Hearts")
-guess = Guess.new("10 of Hearts",card)
+card = Card.new('11', 'Hearts')
+guess = Guess.new('10 of Hearts', card)

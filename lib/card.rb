@@ -9,4 +9,4 @@ class Card
 end
 
 
-card = Card.new(2,"Clubs")
+card = Card.new(2, 'Clubs')
