@@ -1,11 +1,11 @@
 require './lib/card'
 
 class Guess
-  attr_reader :response,
-              :card
-  def initialize(response,card)
-    @response = response
+  attr_reader :card,
+              :response
+  def initialize(card, response)
     @card = card
+    @response = response
   end
 
   def correct?
@@ -22,4 +22,4 @@ class Guess
 end
 
 card = Card.new('11', 'Hearts')
-guess = Guess.new('10 of Hearts', card)
+guess = Guess.new(card, '10 of Hearts')
